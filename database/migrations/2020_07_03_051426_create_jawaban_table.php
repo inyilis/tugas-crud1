@@ -18,6 +18,7 @@ class CreateJawabanTable extends Migration
             $table->integer('id_pertanyaan');
             $table->string('isi');
             $table->string('tgl_dibuat');
+            $table->string('tgl_diupdate');
             $table->timestamps();
         });
     }

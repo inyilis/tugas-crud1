@@ -13,6 +13,16 @@
 			$new_jawaban = DB::table('jawaban')->insert($data);
 			return $new_jawaban;
 		}
+
+		public static function find_by_id($id){
+			$jawaban = DB::table('jawaban')->where('id_pertanyaan', $id)->get();
+			return $jawaban;
+		}
+
+		public static function destroy($id){
+			$delete = DB::table('jawaban')->where('id_pertanyaan', $id)->delete();
+			return $delete;
+		}
 	}
 
 ?>

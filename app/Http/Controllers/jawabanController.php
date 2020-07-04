@@ -4,21 +4,21 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\jawabanModel;
+use App\Models\pertanyaanModel;
 
 class jawabanController extends Controller
 {
-    public function index($pertanyaan_id){
-    	$jawaban = jawabanModel::get_all();
-    	$id_pertanyaan = $pertanyaan_id;
-    	return view('jawaban.index', compact('jawaban'), compact('id_pertanyaan'));
+    public function index($id){
+        $pertanyaan = pertanyaanModel::find_by_id($id);
+        return view('jawaban.index', compact('pertanyaan'));
     }
 
-    public function store(Request $req, $pertanyaan_id){
+    public function store(Request $req){
     	$data = $req->all();
     	unset($data["_token"]);
     	$data_jawaban = jawabanModel::save($data);
     	if($data_jawaban){
-    		return redirect('/jawaban/{$pertanyaan_id}');
+    		return redirect('/pertanyaan');
     	}
     }
 }

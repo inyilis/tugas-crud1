@@ -18,6 +18,7 @@ class CreatePertanyaanTable extends Migration
             $table->string('judul');
             $table->string('isi');
             $table->string('tgl_dibuat');
+            $table->string('tgl_diupdate');
             $table->timestamps();
         });
     }
